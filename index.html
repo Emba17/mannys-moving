@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manny's Moving | Reliable Movers in Seattle</title>
+  <meta name="description" content="Manny's Moving offers local moving, furniture delivery, loading, unloading, and home staging moving services in Seattle and surrounding areas." />
+
+  <style>
+    :root {
+      --red: #DC2626;
+      --dark-red: #991B1B;
+      --black: #111827;
+      --dark: #1F2937;
+      --gray: #6B7280;
+      --light-gray: #F3F4F6;
+      --white: #FFFFFF;
+      --border: #E5E7EB;
+      --shadow: 0 14px 30px rgba(17, 24, 39, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--black);
+      background: var(--light-gray);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .top-bar {
+      background: var(--black);
+      color: var(--white);
+      padding: 8px 0;
+      font-size: 0.9rem;
+    }
+
+    .top-bar .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    header {
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
+    }
+
+    .logo {
+      font-weight: 900;
+      color: var(--black);
+      font-size: 1.55rem;
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--red);
+      display: block;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin-top: 3px;
+    }
+
+    .tagline {
+      color: var(--gray);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-top: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: var(--dark);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: rgba(220, 38, 38, 0.10);
+      color: var(--red);
+    }
+
+    .call-btn {
+      background: var(--red);
+      color: var(--white) !important;
+      padding: 11px 15px !important;
+      border-radius: 10px !important;
+      white-space: nowrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 900;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s ease;
+      text-align: center;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-red {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .btn-dark {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--black);
+      border: 2px solid var(--white);
+    }
+
+    main {
+      min-height: calc(100vh - 170px);
+    }
+
+    .page {
+      display: none;
+      padding: 58px 0 80px;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero {
+      padding: 0;
+      display: none;
+      min-height: calc(100vh - 126px);
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(17, 24, 39, 0.92), rgba(153, 27, 27, 0.75), rgba(17, 24, 39, 0.25)),
+        url('https://images.unsplash.com/photo-1600518464441-9306b0f2597b?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+      align-items: center;
+    }
+
+    .hero.active {
+      display: flex;
+    }
+
+    .hero-content {
+      max-width: 690px;
+      padding: 80px 0;
+    }
+
+    .eyebrow {
+      color: #FCA5A5;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 1.25rem;
+      margin-bottom: 28px;
+      max-width: 620px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .quick-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-weight: 800;
+    }
+
+    .quick-points span {
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      padding: 8px 12px;
+      border-radius: 999px;
+    }
+
+    .page-header {
+      background: var(--white);
+      border-radius: 22px;
+      padding: 42px;
+      box-shadow: var(--shadow);
+      border-top: 8px solid var(--red);
+      margin-bottom: 26px;
+    }
+
+    .page-header h2 {
+      color: var(--black);
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.05;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .page-header p {
+      color: var(--gray);
+      font-size: 1.08rem;
+      max-width: 780px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 8px 18px rgba(17, 24, 39, 0.08);
+    }
+
+    .card-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(220, 38, 38, 0.12);
+      color: var(--red);
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      color: var(--black);
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .card li {
+      color: var(--gray);
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: 14px;
+      display: grid;
+      gap: 9px;
+    }
+
+    .card li::before {
+      content: "✓";
+      color: var(--red);
+      font-weight: 900;
+      margin-right: 9px;
+    }
+
+    .price-card {
+      background: var(--white);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .price-top {
+      background: var(--black);
+      color: var(--white);
+      padding: 22px;
+      text-align: center;
+      font-weight: 900;
+      font-size: 1.2rem;
+    }
+
+    .price-body {
+      padding: 30px;
+    }
+
+    .price {
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .price small {
+      color: var(--gray);
+      font-size: 1rem;
+    }
+
+    .pricing-support {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 18px rgba(17, 24, 39, 0.08);
+      border-left: 6px solid var(--red);
+    }
+
+    .info-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(220, 38, 38, 0.12);
+      color: var(--red);
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+    }
+
+    .info-card h3 {
+      color: var(--black);
+      font-size: 1.45rem;
+      margin-bottom: 10px;
+    }
+
+    .info-card p {
+      color: var(--gray);
+    }
+
+    .notice {
+      background: #FEF2F2;
+      color: var(--dark-red);
+      border: 1px solid #FECACA;
+      border-radius: 16px;
+      padding: 20px;
+      font-weight: 700;
+      margin-top: 24px;
+    }
+
+    .review-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 18px rgba(17, 24, 39, 0.08);
+    }
+
+    .stars {
+      color: var(--red);
+      font-size: 1.25rem;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .review-card p {
+      font-style: italic;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+
+    .city-list {
+      columns: 3;
+      list-style-position: inside;
+      background: var(--white);
+      padding: 32px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .city-list li {
+      margin-bottom: 10px;
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    .city-list li::marker {
+      color: var(--red);
+    }
+
+    .form-card {
+      background: var(--white);
+      padding: 34px;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font: inherit;
+      color: var(--black);
+      background: var(--white);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 3px solid rgba(220, 38, 38, 0.18);
+      border-color: var(--red);
+    }
+
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 34px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    footer p {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.95rem;
+    }
+
+    .mobile-call {
+      display: none;
+      position: fixed;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+      z-index: 300;
+      box-shadow: var(--shadow);
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        justify-content: flex-end;
+        gap: 4px;
+      }
+
+      .nav-links a {
+        font-size: 0.84rem;
+        padding: 8px 9px;
+      }
+
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .pricing-support {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .city-list {
+        columns: 2;
+      }
+    }
+
+    @media (max-width: 650px) {
+      body {
+        padding-bottom: 70px;
+      }
+
+      .top-bar .container {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .nav {
+        display: block;
+      }
+
+      .logo {
+        display: inline-block;
+        margin-bottom: 12px;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .call-btn {
+        display: none;
+      }
+
+      .hero {
+        min-height: calc(100vh - 146px);
+        background:
+          linear-gradient(rgba(17, 24, 39, 0.92), rgba(153, 27, 27, 0.82)),
+          url('https://images.unsplash.com/photo-1600518464441-9306b0f2597b?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      }
+
+      .hero-content {
+        padding: 60px 0;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      .page {
+        padding: 34px 0 60px;
+      }
+
+      .page-header {
+        padding: 28px;
+      }
+
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .pricing-support,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .city-list {
+        columns: 1;
+      }
+
+      .mobile-call {
+        display: inline-flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="container">
+      <span>Serving Seattle, Bellevue, Kirkland, Redmond & surrounding areas</span>
+      <span>Call/Text: <a href="tel:4255605920">425-560-5920</a></span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="#home" class="logo nav-link" data-page="home" aria-label="Manny's Moving home">
+        MANNY'S <span>MOVING</span>
+        <div class="tagline">FAST • RELIABLE • INSURED</div>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home" class="nav-link active" data-page="home">Home</a>
+        <a href="#services" class="nav-link" data-page="services">Services</a>
+        <a href="#pricing" class="nav-link" data-page="pricing">Pricing</a>
+        <a href="#reviews" class="nav-link" data-page="reviews">Reviews</a>
+        <a href="#areas" class="nav-link" data-page="areas">Areas</a>
+        <a href="#contact" class="nav-link" data-page="contact">Contact</a>
+        <a class="call-btn" href="tel:4255605920">📞 425-560-5920</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME PAGE -->
+    <section id="home" class="hero page active">
+      <div class="container hero-content">
+        <div class="eyebrow">Local moving help you can trust</div>
+        <h1>Reliable Movers You Can Trust</h1>
+        <p>Local moving, furniture delivery, loading, unloading, and home staging moves. Fast, careful, and fully insured.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-red nav-link" href="#contact" data-page="contact">Get a Free Quote</a>
+          <a class="btn btn-white" href="tel:4255605920">Call Now</a>
+        </div>
+
+        <div class="quick-points">
+          <span>✓ 26-foot truck</span>
+          <span>✓ Blankets, dollies & wrap</span>
+          <span>✓ Same-day help available</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES PAGE -->
+    <section id="services" class="page">
+      <div class="container">
+        <div class="page-header">
+          <h2>Moving Services</h2>
+          <p>Choose the service you need. Manny's Moving can help with small deliveries, apartment moves, full home moves, loading, unloading, and staging jobs.</p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card">
+            <div class="card-icon">🏠</div>
+            <h3>Local Moving</h3>
+            <p>For apartments, houses, condos, and small businesses.</p>
+            <ul>
+              <li>Furniture protection</li>
+              <li>Truck loading</li>
+              <li>Careful unloading</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">📦</div>
+            <h3>Loading & Unloading</h3>
+            <p>Good if you already have a truck, storage unit, POD, or U-Haul.</p>
+            <ul>
+              <li>Storage units</li>
+              <li>Rental trucks</li>
+              <li>PODs and containers</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🛋️</div>
+            <h3>Furniture Delivery</h3>
+            <p>For one item or a few heavy items that need safe transport.</p>
+            <ul>
+              <li>Couches and beds</li>
+              <li>Cabinets and tables</li>
+              <li>Marketplace pickups</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🪑</div>
+            <h3>Home Staging Moves</h3>
+            <p>Reliable moving help for stagers, designers, and real estate projects.</p>
+            <ul>
+              <li>Fast scheduling</li>
+              <li>Careful furniture handling</li>
+              <li>Setup and removal</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING PAGE -->
+    <section id="pricing" class="page">
+      <div class="container">
+        <div class="page-header">
+          <h2>Simple Pricing</h2>
+          <p>Clean, clear moving rates with professional movers and a truck included. Final price can depend on stairs, distance, heavy items, travel time, and job size.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="price-card">
+            <div class="price-top">🚛 2 Movers + Truck</div>
+            <div class="price-body">
+              <div class="price">$125 <small>/ hour</small></div>
+              <p>Great for small apartments, light moves, and simple local moves.</p>
+              <ul>
+                <li>2 professional movers</li>
+                <li>26-foot truck</li>
+                <li>Moving blankets</li>
+                <li>Dollies and basic moving equipment</li>
+                <li>Shrink wrap available</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="price-card">
+            <div class="price-top">⚡ 3 Movers + Truck</div>
+            <div class="price-body">
+              <div class="price">$175 <small>/ hour</small></div>
+              <p>Great for medium moves, stairs, heavier items, or faster service.</p>
+              <ul>
+                <li>3 professional movers</li>
+                <li>26-foot truck</li>
+                <li>Good for stairs</li>
+                <li>Helpful for heavy furniture</li>
+                <li>Faster loading and unloading</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="price-card">
+            <div class="price-top">💪 4 Movers + Truck</div>
+            <div class="price-body">
+              <div class="price">$225 <small>/ hour</small></div>
+              <p>Best for large homes, heavy furniture, long walks, stairs, or bigger jobs that need more manpower.</p>
+              <ul>
+                <li>4 professional movers</li>
+                <li>26-foot truck</li>
+                <li>Best for large homes</li>
+                <li>Great for long walks</li>
+                <li>More manpower for bigger jobs</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-support">
+          <div class="info-card">
+            <div class="info-icon">💳</div>
+            <h3>Payment Methods</h3>
+            <p>We accept <strong>cash, check, Venmo, Zelle, and other common payment methods</strong>. Payment is usually due after the move is completed unless discussed before the job.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">📋</div>
+            <h3>Get an Accurate Quote</h3>
+            <p>For the most accurate quote, send your pickup city, delivery city, moving date, number of bedrooms, stairs, and photos of the items.</p>
+          </div>
+        </div>
+
+        <div class="notice">
+          Call or text 425-560-5920 for a fast quote. Pricing may vary depending on job details.
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS PAGE -->
+    <section id="reviews" class="page">
+      <div class="container">
+        <div class="page-header">
+          <h2>Customer Reviews</h2>
+          <p>Add your real Google, Facebook, or text-message reviews here. Real screenshots make this page stronger.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Manny’s Moving was fast, professional, and careful with everything.”</p>
+            <strong>— Happy Customer</strong>
+          </div>
+
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“They helped us move furniture into storage and did a great job.”</p>
+            <strong>— Happy Customer</strong>
+          </div>
+
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Great communication, fair pricing, and hardworking movers.”</p>
+            <strong>— Happy Customer</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AREAS PAGE -->
+    <section id="areas" class="page">
+      <div class="container">
+        <div class="page-header">
+          <h2>Service Areas</h2>
+          <p>Manny's Moving serves Seattle and surrounding cities. For cities outside this list, call or text for availability.</p>
+        </div>
+
+        <ul class="city-list">
+          <li>Seattle</li>
+          <li>Bellevue</li>
+          <li>Kirkland</li>
+          <li>Redmond</li>
+          <li>Lynnwood</li>
+          <li>Everett</li>
+          <li>Bothell</li>
+          <li>Shoreline</li>
+          <li>Renton</li>
+          <li>Tacoma</li>
+          <li>Puyallup</li>
+          <li>Arlington</li>
+          <li>Federal Way</li>
+          <li>Kent</li>
+          <li>Marysville</li>
+          <li>Edmonds</li>
+          <li>Woodinville</li>
+          <li>Mill Creek</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT PAGE -->
+    <section id="contact" class="page">
+      <div class="container">
+        <div class="page-header">
+          <h2>Get a Free Moving Quote</h2>
+          <p>Send your moving details below, or call/text 425-560-5920 for faster help.</p>
+        </div>
+
+        <div class="form-card">
+          <!-- IMPORTANT: GitHub Pages needs a form service like Formspree.
+               Replace YOUR_FORM_ID with your real Formspree form ID. -->
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Name" required />
+              <input type="tel" name="phone" placeholder="Phone Number" required />
+            </div>
+
+            <div class="form-row">
+              <input type="date" name="moving-date" required />
+              <input type="text" name="pickup-city" placeholder="Pickup City" required />
+            </div>
+
+            <div class="form-row">
+              <input type="text" name="delivery-city" placeholder="Delivery City" required />
+              <select name="bedrooms" required>
+                <option value="">How many bedrooms?</option>
+                <option value="Studio">Studio</option>
+                <option value="1 Bedroom">1 Bedroom</option>
+                <option value="2 Bedrooms">2 Bedrooms</option>
+                <option value="3 Bedrooms">3 Bedrooms</option>
+                <option value="4 Bedrooms">4 Bedrooms</option>
+                <option value="5+ Bedrooms">5+ Bedrooms</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <select name="stairs" required>
+                <option value="">Any stairs?</option>
+                <option value="No stairs">No stairs</option>
+                <option value="Yes, pickup">Yes, at pickup</option>
+                <option value="Yes, delivery">Yes, at delivery</option>
+                <option value="Yes, both">Yes, both</option>
+              </select>
+              <select name="move-type" required>
+                <option value="">Move type</option>
+                <option value="Local Move">Local Move</option>
+                <option value="Loading Only">Loading Only</option>
+                <option value="Unloading Only">Unloading Only</option>
+                <option value="Furniture Delivery">Furniture Delivery</option>
+                <option value="Home Staging Move">Home Staging Move</option>
+              </select>
+            </div>
+
+            <textarea name="details" placeholder="Anything important? Example: heavy items, elevators, long walk, storage unit, or special furniture." required></textarea>
+            <button class="btn btn-red" type="submit">Send Quote Request</button>
+            <a class="btn btn-dark" href="sms:4255605920">Text Photos Instead</a>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <strong>Manny's Moving</strong>
+        <p>Fast, careful, and reliable moving help.</p>
+      </div>
+      <div>
+        <p>Call/Text: <a href="tel:4255605920">425-560-5920</a></p>
+        <p>Available 7 days a week</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="btn btn-red mobile-call" href="tel:4255605920">📞 Call/Text Manny's Moving</a>
+
+  <script>
+    const pageLinks = document.querySelectorAll('.nav-link[data-page]');
+    const pages = document.querySelectorAll('.page');
+
+    function showPage(pageId) {
+      pages.forEach(page => {
+        page.classList.toggle('active', page.id === pageId);
+      });
+
+      pageLinks.forEach(link => {
+        link.classList.toggle('active', link.dataset.page === pageId);
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    pageLinks.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        const pageId = link.dataset.page;
+        history.pushState(null, '', '#' + pageId);
+        showPage(pageId);
+      });
+    });
+
+    window.addEventListener('popstate', () => {
+      const pageId = location.hash.replace('#', '') || 'home';
+      showPage(document.getElementById(pageId) ? pageId : 'home');
+    });
+
+    const startingPage = location.hash.replace('#', '') || 'home';
+    showPage(document.getElementById(startingPage) ? startingPage : 'home');
+  </script>
+</body>
+</html>
