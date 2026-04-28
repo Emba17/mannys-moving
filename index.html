@@ -417,6 +417,18 @@
       padding: 28px;
       border: 1px solid var(--border);
       box-shadow: 0 8px 18px rgba(17, 24, 39, 0.08);
+      position: relative;
+    }
+
+    .review-card::before {
+      content: "“";
+      position: absolute;
+      top: 10px;
+      right: 22px;
+      color: rgba(220, 38, 38, 0.12);
+      font-size: 5rem;
+      font-weight: 900;
+      line-height: 1;
     }
 
     .stars {
@@ -430,6 +442,31 @@
       font-style: italic;
       color: var(--dark);
       margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .review-name {
+      color: var(--black);
+      font-weight: 900;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .review-location {
+      color: var(--gray);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .review-note {
+      background: #FEF2F2;
+      color: var(--dark-red);
+      border: 1px solid #FECACA;
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-bottom: 24px;
+      font-weight: 700;
     }
 
     .city-list {
@@ -803,26 +840,54 @@
       <div class="container">
         <div class="page-header">
           <h2>Customer Reviews</h2>
-          <p>Add your real Google, Facebook, or text-message reviews here. Real screenshots make this page stronger.</p>
+          <p>Use this page to build trust with real customer feedback. Replace these sample review cards with real Google reviews, Facebook reviews, or customer text messages before advertising the website.</p>
+        </div>
+
+        <div class="review-note">
+          These are sample placeholder reviews for website layout only. For the live website, replace them with real reviews from actual customers.
         </div>
 
         <div class="grid-3">
           <div class="review-card">
             <div class="stars">★★★★★</div>
-            <p>“Manny’s Moving was fast, professional, and careful with everything.”</p>
-            <strong>— Happy Customer</strong>
+            <p>“Manny’s Moving showed up on time, wrapped the furniture, and moved everything carefully. The job felt organized from start to finish.”</p>
+            <span class="review-name">— Beshoy Youssef</span>
+            <span class="review-location">Kirkland, WA</span>
           </div>
 
           <div class="review-card">
             <div class="stars">★★★★★</div>
-            <p>“They helped us move furniture into storage and did a great job.”</p>
-            <strong>— Happy Customer</strong>
+            <p>“Very hardworking crew. They moved fast but still took care of the walls, floors, and furniture. I would call them again.”</p>
+            <span class="review-name">— Simba</span>
+            <span class="review-location">Seattle, WA</span>
           </div>
 
           <div class="review-card">
             <div class="stars">★★★★★</div>
-            <p>“Great communication, fair pricing, and hardworking movers.”</p>
-            <strong>— Happy Customer</strong>
+            <p>“Clear price, good communication, and no stress. They helped with a couch, bed frame, boxes, and a heavy dresser.”</p>
+            <span class="review-name">— Alexender</span>
+            <span class="review-location">Bellevue, WA</span>
+          </div>
+
+          <div class="review-card">
+            <div class="stars">★★★★☆</div>
+            <p>“My only complaint is they moved too fast. I blinked and my couch was already in the truck. Now I have no excuse to avoid unpacking.”</p>
+            <span class="review-name">— Kem</span>
+            <span class="review-location">Redmond, WA</span>
+          </div>
+
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“They helped unload my storage unit and brought the right equipment. The move was quick, simple, and professional.”</p>
+            <span class="review-name">— Daniel A.</span>
+            <span class="review-location">Lynnwood, WA</span>
+          </div>
+
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Great movers for a local apartment move. They answered fast, gave a clear estimate, and handled my items with care.”</p>
+            <span class="review-name">— Miriam T.</span>
+            <span class="review-location">Bothell, WA</span>
           </div>
         </div>
       </div>
@@ -877,12 +942,11 @@
             </div>
 
             <div class="form-row">
-              <input type="date" name="moving-date" required />
               <input type="text" name="pickup-city" placeholder="Pickup City" required />
+              <input type="text" name="delivery-city" placeholder="Delivery City" required />
             </div>
 
             <div class="form-row">
-              <input type="text" name="delivery-city" placeholder="Delivery City" required />
               <select name="bedrooms" required>
                 <option value="">How many bedrooms?</option>
                 <option value="Studio">Studio</option>
@@ -892,9 +956,6 @@
                 <option value="4 Bedrooms">4 Bedrooms</option>
                 <option value="5+ Bedrooms">5+ Bedrooms</option>
               </select>
-            </div>
-
-            <div class="form-row">
               <select name="stairs" required>
                 <option value="">Any stairs?</option>
                 <option value="No stairs">No stairs</option>
@@ -912,7 +973,7 @@
               </select>
             </div>
 
-            <textarea name="details" placeholder="Anything important? Example: heavy items, elevators, long walk, storage unit, or special furniture." required></textarea>
+            <textarea name="details" placeholder="Anything important? Example: preferred moving date, heavy items, elevators, long walk, storage unit, or special furniture." required></textarea>
             <button class="btn btn-red" type="submit">Send Quote Request</button>
             <a class="btn btn-dark" href="sms:4255605920">Text Photos Instead</a>
           </form>
